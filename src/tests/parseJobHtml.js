@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const parseJobHtml = require('../services/parseJobHtml');
+const parseJobHtml = require('../utils/parseJobHtml');
 
 describe('job html parser', () => {
   it('should extract job ID, employer, job title, location, level, description, and number of available openings from html',
