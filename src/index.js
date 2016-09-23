@@ -3,6 +3,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const get = require('simple-get');
 const concat = require('concat-stream');
+const Promise = require('bluebird');
 
 const utils = require('./utils');
 
@@ -18,11 +19,8 @@ app.post('/header', (req, res) => {
 		headers
 	},
 		(err, jobmineRes, jobmineData) => {
-			console.log(jobmineRes.statusCode);
-			console.log(jobmineRes.headers);
-			console.log(jobmineData);
 			jobmineRes.pipe(concat((data) => {
-				res.send(data);
+				res.json(utils.parseJobHtml(data.toString()));
 			}));
 		});
 });
