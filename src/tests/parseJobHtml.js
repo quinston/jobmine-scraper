@@ -1045,7 +1045,7 @@ expect(parseJobHtml(body)).to.eql({
   noAvailableOpenings: 5
 });
   });
-	it('should parse body html without linebreaks', () => {
+	it('should parse body html in spite of carriage returns', () => {
 const body2 = `
 <html dir='ltr' lang='en'>
 <!-- Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved. -->
@@ -1060,8 +1060,7 @@ var timeoutWarningPageURL = 'https://jobmine.ccol.uwaterloo.ca/psc/SS_1/EMPLOYEE
 
 <link id=PSSTYLEREQ_1_css rel='stylesheet' type='text/css' href='/cs/SS/cache/85305/PSSTYLEREQ_1.css' />
 <link id=UW_CO_PSSTYLEDEF_SWAN_853_4_css rel='stylesheet' type='text/css' href='/cs/SS/cache/85305/UW_CO_PSSTYLEDEF_SWAN_853_4.css' />
-<title id='PSPAGETITLE'>Job Details</title>
-<script language='JavaScript'>
+<title id='PSPAGETITLE'>Job Details</title> <script language='JavaScript'>
 var winParent = null;
 var modalID = null;
 var modalZoomName = null;
@@ -1474,7 +1473,7 @@ if (typeof window.top.ptrc != "undefined" && window.top.ptrc != null){window.top
 <td height='264' colspan='4'></td>
 <td colspan='10'  valign='top' align='left'>
 <DIV id='win1divUW_CO_JOBDTL_VW_UW_CO_JOB_DESCR'><span  class='PSTEXT' id='UW_CO_JOBDTL_VW_UW_CO_JOB_DESCR'>Company Profile	
-<br />
+<br />\r\r\n\r
 <br />500px is an award-winning online community for the sharing, discovery, buying and selling of high-quality photography by individual photographers. Every month, millions of people visit the 500px.com website, in-browser apps and mobile apps from around the world to find the world&#039;s most inspiring photography. 500px&#039;s investors include Andreessen Horowitz, Harrison Metal, ff Ventures, and others. You will have the opportunity to work with one of Canada&#039;s top consumer driven startups. We take pride in the product we ship and love what we do. By joining 500px you will see the immediate impact of your work and contribute to inspiring the world with the world&#039;s best photo sharing.
 <br />
 <br />Job Summary	
@@ -1561,7 +1560,7 @@ document.hiddenFldArr_win1 =new Array('ICType','ICElementNum','ICStateNum','ICAc
 document.chgFldArr_win1 = new Array();
 var bCDATA = false;
 var bLoadCompleted = true;
-</script></html>`
+</script></html>`;
 
 expect(parseJobHtml(body2)).to.eql({
   jobId: '00305926',
