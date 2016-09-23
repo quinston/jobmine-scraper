@@ -20,6 +20,7 @@ app.post('/header', (req, res) => {
 	},
 		(err, jobmineRes, jobmineData) => {
 			jobmineRes.pipe(concat((data) => {
+				console.log(data.toString());
 				res.json(utils.parseJobHtml(data.toString()));
 			}));
 		});
