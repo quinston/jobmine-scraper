@@ -13,5 +13,11 @@
     "concat-stream": "^1.5.2",
     "express": "^4.14.0",
     "simple-get": "^2.2.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-mocha": "^3.0.1"
   }
 }
