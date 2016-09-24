@@ -1,0 +1,16 @@
+{
+	"mappings": {
+		"job": {
+			"_all": { "enabled": false },
+			"properties": {
+				"jobId": { "type": "string", "index": "not_analyzed"  },
+				"employerName": { "type": "string", "analyzer": "standard" },
+				"description": { "type": "string", "analyzer": "english" },
+				"location": { "type": "string", "index": "not_analyzed" },
+				"jobTitle": { "type": "string", "analyzer": "english" },
+				"noAvailablePositions": { "type": "integer" }
+			}
+		}
+	}
+}
+

@@ -30,7 +30,7 @@ const fetchJob = (jobId) => {
 };
 
 // Just one ID per line, get it from ps.xls
-const listOfIds = fs.readFileSync('./lotsOfIds', {
+const listOfIds = fs.readFileSync(sensitiveConfig.idList, {
 	encoding: 'ascii'
 }).split('\n');
 
