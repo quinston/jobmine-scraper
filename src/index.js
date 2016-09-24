@@ -14,8 +14,6 @@ app.use(bodyParser.json());
 app.post('/header', (req, res) => {
 	const { headers, jobId } = req.body;
 
-	console.log(headers);
-	console.log(jobId);
 
 	get.concat({
 		url: `https://jobmine.ccol.uwaterloo.ca/psc/ES_1/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBDTLS.GBL?Page=UW_CO_STU_JOBDTLS&Action=U&UW_CO_JOB_ID=${jobId}`,
