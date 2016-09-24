@@ -24,6 +24,7 @@ const fetchJob = (jobId) => {
  	})
  })
  .then(([res, data]) => {
+	 console.log(`{ "index": { "_index": "jobs", "_type": "job", "_id": "${jobId}" }}`);
 	 console.log(data.toString());
  })
 };
