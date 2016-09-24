@@ -9,12 +9,16 @@ const utils = require('./utils');
 const app = express();
 const PORT = 8888;
 
-app.use(bodyParser.text());
+app.use(bodyParser.json());
 
 app.post('/header', (req, res) => {
-	const headers = utils.parseHeaders(req.body);
+	const { headers, jobId } = req.body;
+
+	console.log(headers);
+	console.log(jobId);
+
 	get.concat({
-		url: 'https://jobmine.ccol.uwaterloo.ca/psc/ES_1/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBDTLS.GBL?Page=UW_CO_STU_JOBDTLS&Action=U&UW_CO_JOB_ID=00303969',
+		url: `https://jobmine.ccol.uwaterloo.ca/psc/ES_1/EMPLOYEE/WORK/c/UW_CO_STUDENTS.UW_CO_JOBDTLS.GBL?Page=UW_CO_STU_JOBDTLS&Action=U&UW_CO_JOB_ID=${jobId}`,
 		headers
 	},
 		(err, jobmineRes, jobmineData) => {
